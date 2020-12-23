@@ -1,35 +1,33 @@
-const findBestEmployee = function(employees) {
-    const values = Object.values(employees);
-    const highestPay = Math.max(...values);
-    for (const key in employees) {
-      if (employees[key] === highestPay)
-      return key;
-    }
+class Storage {
+  constructor (items) {
+    this.items = items;
+  }
+
+  getItems () {
+    console.log(this.items);
+  }
+
+  addItem(item) {
+    this.items.push(item);
+  }
+
+  removeItem(item) {
+    this.items.splice(this.items.indexOf(item), 1);
+  }
 }
-    
-  
-  console.log(
-    findBestEmployee({
-      ann: 29,
-      david: 35,
-      helen: 1,
-      lorence: 99,
-    }),
-  ); // lorence
-  
-  console.log(
-    findBestEmployee({
-      poly: 12,
-      mango: 17,
-      ajax: 4,
-    }),
-  ); // mango
-  
-  console.log(
-    findBestEmployee({
-      lux: 147,
-      david: 21,
-      kiwi: 19,
-      chelsy: 38,
-    }),
-  ); // lux
+
+const storage = new Storage([
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор',
+]);
+
+const items = storage.getItems();
+console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
+
+storage.addItem('Дроид');
+console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+storage.removeItem('Пролонгер');
+console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
