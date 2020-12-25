@@ -33,6 +33,3 @@ console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "
 
 storage.removeItem('Пролонгер');
 console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
-
-storage.removeItem('mkjvkdnvkdnblknbl');
-console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
