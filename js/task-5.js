@@ -1,7 +1,7 @@
 class Car {
 
     static getSpecs(car) {
-        console.log(car);
+        console.log(`maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car._price}`);
     }
 
     /*
@@ -32,7 +32,7 @@ class Car {
 
 
     turnOn() {
-        this.Ison = true;
+        this.isOn = true;
     }
   
     /*
@@ -41,7 +41,7 @@ class Car {
      * и сбрасывает текущую скорость в 0
      */
     turnOff() {
-        this.Ison = false;
+        this.isOn = false;
         this.speed = 0;
     }
   
@@ -61,7 +61,7 @@ class Car {
      * при условии что результирующая скорость не меньше нуля
      */
     decelerate(value) {
-        if (this.speed + value > 0) {
+        if (this.speed - value > 0) {
             this.speed -= value;
         }
     }
@@ -71,7 +71,7 @@ class Car {
      * но только в том случае если машина заведена!
      */
     drive(hours) {
-        if (this.isOn = true) {
+        if (this.isOn) {
             this.distance += hours * this.speed;
         }
     }
